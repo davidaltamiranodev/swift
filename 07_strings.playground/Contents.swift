@@ -85,3 +85,45 @@ let range = welcome.index(welcome.endIndex, offsetBy:
                             -7)..<welcome.endIndex
 welcome.removeSubrange(range)
 welcome
+
+greeting
+let index = greeting.firstIndex(of: ",") ?? greeting.endIndex
+let firstPart = greeting[..<index]
+
+let newString = String(firstPart)
+
+let newGreting = "Hola, soy Juan Gabriel"
+newGreting.hasPrefix("Hola")
+newGreting.hasSuffix("1")
+
+let collection = [
+    "Act 1 Scene 1", "Act 1 Scene 2", "Act 1 Scene 3", "Act 1 Scene 4", "Act 1 Scene 5",
+    "Act 2 Scene 1", "Act 2 Scene 2", "Act 2 Scene 3",
+    "Act 3 Scene 1", "Act 3 Scene 2"//, "Act 3 Scene 1", "Act 1 Scene 1",
+]
+
+var act1SceneCount = 0
+for scene in collection{
+    if scene.hasPrefix("Act 1"){
+        act1SceneCount += 1
+    }
+}
+
+print("El número de escenas del acto 1 es: \(act1SceneCount)")
+
+
+let ghost = "Fantasma!! 👻"
+
+for codeUnit in ghost.utf8{
+    print(codeUnit, terminator: " ")
+}
+
+print(" ")
+for codeUnit in ghost.utf16{
+    print(codeUnit, terminator: " ")
+}
+
+print(" ")
+for codeUnit in ghost.unicodeScalars{
+    print(codeUnit, terminator: " ")
+}
