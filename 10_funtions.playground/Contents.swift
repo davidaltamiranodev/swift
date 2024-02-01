@@ -69,3 +69,17 @@ func minMax(array: [Int]) -> (min: Int, max: Int)?{
 
 let bounds = minMax(array: [6, 3, -8, 3, 1, 9, 5, 15, -9])
 print("Los valores se halla entre \(bounds!.min) y \(bounds!.max)")
+
+minMax(array: [])
+
+func someFunction(f1 firstParamName: Int, f2 secondParamName: Int){
+    
+}
+
+someFunction(f1: 5, f2: 1)
+
+func greeting(person: String,from hometown: String) -> String {
+    return "Hola \(person) un placer que no visistes desde \(hometown)"
+}
+
+greeting(person: "Juan Gabriel", from: "Mallorca")
