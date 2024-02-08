@@ -56,7 +56,7 @@ func minMax(array: [Int]) -> (min: Int, max: Int)?{
     var currentMin = array[0]
     var currentMax = array[0]
     
-    for value in array[1...<array.count]{
+    for value in array[1..<array.count]{
         if value < currentMin{
             currentMin = value
         }else if value > currentMax{
@@ -72,14 +72,100 @@ print("Los valores se halla entre \(bounds!.min) y \(bounds!.max)")
 
 minMax(array: [])
 
-func someFunction(f1 firstParamName: Int, f2 secondParamName: Int){
+func someFunction(f1 firstParamName: Int, f2 secondParamName: Int = 6){
     
 }
 
 someFunction(f1: 5, f2: 1)
-
+someFunction(f1: 5)
 func greeting(person: String,from hometown: String) -> String {
     return "Hola \(person) un placer que no visistes desde \(hometown)"
 }
 
 greeting(person: "Juan Gabriel", from: "Mallorca")
+
+
+func mean(_ numbers: Double...) -> Double {
+    var total: Double = 0
+    for number in numbers{
+        total += number
+    }
+    return total / Double(numbers.count)
+}
+
+mean(1, 2, 3, 4, 5)
+mean(1.5, 2.7)
+mean(3, 4.5, 18.75)
+
+let x = 5
+func addOne(number: Int){
+    var number2 = number
+    number2 += 1
+    print("El numero ahora vale \(number2)")
+}
+
+addOne(number: x)
+
+
+func swapTwoInts(_ a: inout Int, _ b: inout Int){
+    let tempA = a
+    a = b
+    b = tempA
+    
+    
+}
+
+
+var someInt = 3
+var otherInt = 7
+print("some int vale \(someInt) y otherInt vale \(otherInt)")
+swapTwoInts(&someInt, &otherInt)
+print("some int vale \(someInt) y otherInt vale \(otherInt)")
+
+
+func addTwoInts(_ a: Int, _ b: Int) -> Int{
+    return a + b
+}
+
+func multiplyTwoInts(_ a: Int, _ b: Int) -> Int{
+    return a * b
+}
+
+func printHW(){
+    print("Hello World")
+}
+
+var mathFunction: (Int, Int) -> Int = multiplyTwoInts
+mathFunction(4, 5)
+
+
+func printMathResult(_ mathFunc: (Int, Int) -> Int, _ a: Int, _ b: Int){
+    print("Resultado: \(mathFunction(a, b))")
+}
+
+printMathResult(multiplyTwoInts, 5, 9)
+
+
+
+
+//stepforward(5)
+
+func chooseStepFunction(backward: Bool) -> (Int) -> Int {
+    func stepforward(_ input: Int) -> Int{
+        return input + 1
+    }
+
+    func stepBackard(_ input: Int) -> Int {
+        return input - 1
+    }
+    
+    return backward ? stepBackard : stepforward
+}
+
+var value = 7
+let moveNearerZero = chooseStepFunction(backward: value > 0)
+while value != 0 {
+    print("\(value)...")
+    value = moveNearerZero(value)
+}
+print("Cero")
