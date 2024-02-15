@@ -93,3 +93,35 @@ let stepCounter = StepCounter()
 stepCounter = 200
 stepCounter.totalSteps = 520
 stepCounter.totalSteps += 1234
+
+struct someStruct {
+    var counter = 0
+    static var storedTypeProperty = "SOME VALUE"
+    static var computerTyperProperty: Int {
+        return 1
+    }
+}
+
+var instanceStr = SomeStruct()
+
+var otherInstanceStr = SomeStruct()
+
+enum SomeEnum {
+    static var storedTypeProperty = "SomeValue"
+    static var computedTypeProperty: Int {
+        return 5
+    }
+}
+
+SomeEnum.storedTypeProperty
+
+class SomeClass {
+    static var storedTypeProperty = "Some Value"
+    static var computedTypeProperty: Int{
+        return -9
+    }
+    
+    class var overrideableComputedTypeProperty: Int {
+        return 108
+    }
+}
